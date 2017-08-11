@@ -20,6 +20,7 @@ internal struct Selectors {
     static let tableViewSwizzledEndUpdates = #selector(UIScrollView.tb_tableViewSwizzledEndUpdates)
     static let collectionViewSwizzledReloadData = #selector(UIScrollView.tb_collectionViewSwizzledReloadData)
     static let collectionViewSwizzledPerformBatchUpdates = #selector(UIScrollView.tb_collectionViewSwizzledPerformBatchUpdates(_:completion:))
+    static let collectionViewSwizzledInsertItems = #selector(UIScrollView.tb_collectionViewSwizzledInsertItems)
 }
 
 internal struct TableViewSelectors {
@@ -32,6 +33,7 @@ internal struct CollectionViewSelectors {
     static let reloadData = #selector(UICollectionView.reloadData)
     static let numberOfSections = #selector(UICollectionViewDataSource.numberOfSections(in:))
     static let performBatchUpdates = #selector(UICollectionView.performBatchUpdates(_:completion:))
+    static let insertItems = #selector(UICollectionView.insertItems(at:))
 }
 
 internal struct DefaultValues {

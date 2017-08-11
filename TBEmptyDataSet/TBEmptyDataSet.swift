@@ -26,6 +26,7 @@ extension UIScrollView {
                 case is UICollectionView:
                     UICollectionView.tb_swizzleCollectionViewReloadData
                     UICollectionView.tb_swizzleCollectionViewPerformBatchUpdates
+                    UICollectionView.tb_swizzleCollectionViewInsertItems
                 default:
                     break
                 }
@@ -282,6 +283,12 @@ extension UIScrollView {
 
         tb_swizzleMethod(for: UICollectionView.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
     }()
+    
+    fileprivate static let tb_swizzleCollectionViewInsertItems: () = {
+        let originalSelector = CollectionViewSelectors.insertItems
+        let swizzledSelector = Selectors.collectionViewSwizzledInsertItems
+        tb_swizzleMethod(for: UICollectionView.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
+    }()
 
     func tb_tableViewSwizzledReloadData() {
         tb_tableViewSwizzledReloadData()
@@ -303,5 +310,10 @@ extension UIScrollView {
             completion?(completed)
             self?.reloadEmptyDataSet()
         }
+    }
+    
+    func tb_collectionViewSwizzledInsertItems() {
+        tb_collectionViewSwizzledInsertItems()
+        reloadEmptyDataSet()
     }
 }
