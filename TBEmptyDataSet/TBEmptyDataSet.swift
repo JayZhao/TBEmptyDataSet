@@ -23,6 +23,7 @@ extension UIScrollView {
                 case is UITableView:
                     UITableView.tb_swizzleTableViewReloadData
                     UITableView.tb_swizzleTableViewEndUpdates
+                    UITableView.tb_swizzleTableViewInsertRows
                 case is UICollectionView:
                     UICollectionView.tb_swizzleCollectionViewReloadData
                     UICollectionView.tb_swizzleCollectionViewPerformBatchUpdates
@@ -267,6 +268,14 @@ extension UIScrollView {
 
         tb_swizzleMethod(for: UITableView.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
     }()
+    
+    // swiftlint:disable variable_name
+    fileprivate static let tb_swizzleTableViewInsertRows: () = {
+        let originalSelector = TableViewSelectors.insertRows
+        let swizzledSelector = Selectors.tableViewSwizzledInsertRows
+        
+        tb_swizzleMethod(for: UITableView.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
+    }()
 
     // swiftlint:disable variable_name
     fileprivate static let tb_swizzleCollectionViewReloadData: () = {
@@ -284,6 +293,7 @@ extension UIScrollView {
         tb_swizzleMethod(for: UICollectionView.self, originalSelector: originalSelector, swizzledSelector: swizzledSelector)
     }()
     
+    // swiftlint:disable variable_name
     fileprivate static let tb_swizzleCollectionViewInsertItems: () = {
         let originalSelector = CollectionViewSelectors.insertItems
         let swizzledSelector = Selectors.collectionViewSwizzledInsertItems
@@ -297,6 +307,11 @@ extension UIScrollView {
 
     func tb_tableViewSwizzledEndUpdates() {
         tb_tableViewSwizzledEndUpdates()
+        reloadEmptyDataSet()
+    }
+    
+    func tb_tableViewSwizzledInsertRows() {
+        tb_tableViewSwizzledInsertRows()
         reloadEmptyDataSet()
     }
 
