@@ -118,8 +118,8 @@ extension UIScrollView {
     }
 
     // MARK: - Helper
-    func didTapEmptyDataView(_ sender: Any) {
-        emptyDataSetDelegate?.emptyDataSetDidTapEmptyView(in: self)
+    func didTapEmptyDataView(_ sender: UIGestureRecognizer) {
+        emptyDataSetDelegate?.emptyDataSetDidTapEmptyView(in: self, gesture: sender)
     }
 
     fileprivate func makeEmptyDataView() -> EmptyDataView {

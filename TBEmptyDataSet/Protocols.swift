@@ -27,7 +27,7 @@ public protocol TBEmptyDataSetDelegate {
     func emptyDataSetTapEnabled(in scrollView: UIScrollView) -> Bool
     func emptyDataSetScrollEnabled(in scrollView: UIScrollView) -> Bool
 
-    func emptyDataSetDidTapEmptyView(in scrollView: UIScrollView)
+    func emptyDataSetDidTapEmptyView(in scrollView: UIScrollView, gesture: UIGestureRecognizer)
 
     func emptyDataSetWillAppear(in scrollView: UIScrollView)
     func emptyDataSetDidAppear(in scrollView: UIScrollView)
