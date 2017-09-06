@@ -82,7 +82,7 @@ public extension TBEmptyDataSetDelegate {
         return false
     }
 
-    func emptyDataSetDidTapEmptyView(in scrollView: UIScrollView) {
+    func emptyDataSetDidTapEmptyView(in scrollView: UIScrollView, gesture: UIGestureRecognizer) {
 
     }
 
