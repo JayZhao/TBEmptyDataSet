@@ -8,7 +8,7 @@
 
 import UIKit
 
-extension UIScrollView {
+public extension UIScrollView {
     // MARK: - Properties
     public var emptyDataSetDataSource: TBEmptyDataSetDataSource? {
         get {
@@ -51,7 +51,7 @@ extension UIScrollView {
         }
     }
 
-    internal var emptyDataView: EmptyDataView? {
+    public var emptyDataView: EmptyDataView? {
         get {
             return objc_getAssociatedObject(self, &AssociatedKeys.emptyDataView) as? EmptyDataView
         }

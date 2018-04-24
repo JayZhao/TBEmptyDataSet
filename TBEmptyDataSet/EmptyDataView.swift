@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class EmptyDataView: UIView {
+public class EmptyDataView: UIView {
     fileprivate struct ViewStrings {
         static let contentView = "contentView"
         static let imageView = "imageView"
@@ -107,11 +107,11 @@ internal class EmptyDataView: UIView {
         addSubview(self.contentView)
     }
 
-    required init?(coder aDecoder: NSCoder) {
+    public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
 
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         frame = super.bounds
         UIView.animate(withDuration: 0.25, animations: { () -> Void in
             self.contentView.alpha = 1
