@@ -27,7 +27,7 @@ public extension UIScrollView {
                 case is UICollectionView:
                     UICollectionView.tb_swizzleCollectionViewReloadData
                     UICollectionView.tb_swizzleCollectionViewPerformBatchUpdates
-                    UICollectionView.tb_swizzleCollectionViewInsertItems
+//                    UICollectionView.tb_swizzleCollectionViewInsertItems
                 default:
                     break
                 }
