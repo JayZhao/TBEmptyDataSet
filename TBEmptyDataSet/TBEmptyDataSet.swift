@@ -23,7 +23,7 @@ public extension UIScrollView {
                 case is UITableView:
                     UITableView.tb_swizzleTableViewReloadData
                     UITableView.tb_swizzleTableViewEndUpdates
-                    UITableView.tb_swizzleTableViewInsertRows
+//                    UITableView.tb_swizzleTableViewInsertRows
                 case is UICollectionView:
                     UICollectionView.tb_swizzleCollectionViewReloadData
                     UICollectionView.tb_swizzleCollectionViewPerformBatchUpdates
